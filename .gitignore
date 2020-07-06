@@ -18,7 +18,7 @@ firebase-debug.log*
 
 #Code Editor file
 /.idea
-functions/permission.json
+functions/.permission.json
 # Runtime data
 pids
 *.pid

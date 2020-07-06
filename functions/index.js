@@ -30,6 +30,20 @@ app.post('/api/create', (req, res, next) => {
     })();
 })
 
+app.get('/api/read/:id', (req, res, next) => {
+    (async () => {
+       try {
+           const document = db.collection('items').doc(req.params.id);
+           let item = document.get();
+           let response = item.data();
+           return res.send(response);
+       } catch (e) {
+           console.log(e);
+           return res.status(500).send(e);
+       }
+    })();
+});
+
 exports.app = functions.https.onRequest(app);
 
 // // Create and Deploy Your First Cloud Functions
